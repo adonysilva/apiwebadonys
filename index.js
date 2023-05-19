@@ -15,7 +15,6 @@ const db = mysql.createConnection({
     database: 'programadorweb-10-03-2023'
   });
 
-  // Cria o servidor Express
 const app = express();
 
 // Adiciona o middleware Cors para permitir o acesso externo à API
@@ -29,7 +28,6 @@ app.get('/', (req, res) => {
     res.send('Minha  API de Programador Web');
   });
 
-// Método para gerar um token de autenticação
 function generateToken(codigousuario) {
   const token = jwt.sign({ codigousuario: codigousuario }, secretKey, { expiresIn: '1h' });
   const data_criacao = new Date();
